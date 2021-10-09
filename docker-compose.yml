@@ -1,0 +1,17 @@
+# docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+
+version: '3.3'
+
+# Each service is each container
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodbdata:/data/db
+
+# Register volumns that is outside of all services
+volumes:
+  mongodbdata:
